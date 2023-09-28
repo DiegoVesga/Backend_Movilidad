@@ -1,7 +1,7 @@
 
 from config.db import app, db, ma
 
-class ruta(db.Model):
+class usuario(db.Model):
     __tablename__ = "tblusuario"
     id_usuario= db.Column(db.Integer, primary_key = True)
     nombre = db.Column(db.String(50))
