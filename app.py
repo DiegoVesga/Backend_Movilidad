@@ -8,6 +8,7 @@ from api.lugar_estrategico import ruta_lugar_estrategico
 from api.consejos import ruta_consejos
 from api.ciclo_ruta import ruta_ciclo_ruta
 from api.ruta_lugar_estrategico import ruta_ruta_lugar_estrategico
+from api.usuario_ruta import ruta_usuario_ruta
 app.register_blueprint(ruta_ciclovia, url_prefix="/api")
 app.register_blueprint(ruta_usuario, url_prefix="/api")
 app.register_blueprint(ruta_ruta, url_prefix="/api")
@@ -16,7 +17,7 @@ app.register_blueprint(ruta_lugar_estrategico, url_prefix="/api")
 app.register_blueprint(ruta_consejos, url_prefix="/api")
 app.register_blueprint(ruta_ciclo_ruta, url_prefix="/api")
 app.register_blueprint(ruta_ruta_lugar_estrategico, url_prefix="/api")
-
+app.register_blueprint(ruta_usuario_ruta, url_prefix="/api")
 
 #no me funcionan los llamados
 @app.route("/")
