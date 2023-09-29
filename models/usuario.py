@@ -19,5 +19,5 @@ class usuario_Schema(ma.Schema):
     class Meta:
         fields = ('id_usuario', 'nombre')
 
-usuario_Schema = usuario_Schema()
-usuarios_Schema = usuario_Schema(many=True)
+usuario_schema = usuario_Schema()
+usuarios_schema = usuario_Schema(many=True)

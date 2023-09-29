@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request,json
 from config.db import db, app, ma
-from models.usuario import usuario, usuario_Schema,usuarios_Schema
+from models.usuario import usuario, usuario_schema,usuarios_schema
 
 
 ruta_usuario = Blueprint("ruta_usuario",__name__)
@@ -11,7 +11,7 @@ ruta_usuario = Blueprint("ruta_usuario",__name__)
 @ruta_usuario.route("/usuario", methods=["GET"])
 def usuario():
     resultall = usuario.query.all()
-    result = usuarios_Schema.dump(resultall)
+    result = usuarios_schema.dump(resultall)
     return jsonify(result)
 
 @ruta_usuario.route("/saveusuario", methods=["POST"])

@@ -4,7 +4,7 @@ from config.db import app, db, ma
 class consejos(db.Model):
     __tablename__ = "tblconsejos"
     id_consejo = db.Column(db.Integer, primary_key = True)
-    id_usuario= db.Column(db.Integer, db.ForeignKey('usuario.id_usuario'))
+    id_usuario= db.Column(db.Integer, db.ForeignKey('tblusuario.id_usuario'))
     texto_consejo = db.Column(db.String(50))
     
 
@@ -21,5 +21,5 @@ class consejos_Schema(ma.Schema):
     class Meta:
         fields = ('id_consejos','id_usuario', 'texto_consejo')
 
-concejo_Schema = consejos_Schema()
-concejoss_Schema = consejos_Schema(many=True)
+consejo_schema = consejos_Schema()
+consejoss_Schema = consejos_Schema(many=True)

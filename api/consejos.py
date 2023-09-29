@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request,json
 from config.db import db, app, ma
-from models.consejos import consejos, consejo_Schema,consejoss_Schema
+from models.consejos import consejos, consejo_schema,consejoss_Schema
 
 
 ruta_consejos = Blueprint("ruta_consejos",__name__)

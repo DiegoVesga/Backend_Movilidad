@@ -3,7 +3,7 @@ from config.db import db, app, ma
 from models.ruta import ruta, ruta_schema, rutas_schema
 
 
-ruta_ruta = Blueprint("ruta_alerta",__name__)
+ruta_ruta = Blueprint("ruta_ruta",__name__)
 #routes_cliente = Blueprint("routes_cliente", __name__)
 
 

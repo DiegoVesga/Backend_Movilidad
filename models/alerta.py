@@ -6,7 +6,7 @@ class alerta(db.Model):
     id_alerta = db.Column(db.Integer, primary_key = True)
     tipo_alerta = db.Column(db.String(50))
     fecha=db.Column(db.Date)
-    id_ciclo = db.Column(db.Integer, db.ForeignKey('ciclovia.id_ciclo'))
+    id_ciclo = db.Column(db.Integer, db.ForeignKey('tblciclovia.id_ciclo'))
 
     def __init__(self, id_alerta,tipo_alerta,fecha,id_ciclo):
         self.id_ciclo = id_ciclo
