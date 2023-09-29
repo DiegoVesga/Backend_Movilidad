@@ -5,11 +5,13 @@ class usuario_ruta(db.Model):
     id_usuario_ruta= db.Column(db.Integer, primary_key=True)
     id_usuario = db.Column(db.Integer, db.ForeignKey('tblusuario.id_usuario'))
     id_ruta = db.Column(db.Integer, db.ForeignKey('tblruta.id_ruta'))
+    favorito= db.Column (db.Boolean)
 
-    def __init__(self, id_usuario_ruta, id_usuario, id_ruta):
+    def __init__(self, id_usuario_ruta, id_usuario, id_ruta, favorito):
         self.id_usuario_ruta= id_usuario_ruta
         self.id_usuario = id_usuario
         self.id_ruta = id_ruta
+        self.favorito= favorito
  
 
         
@@ -19,7 +21,7 @@ with app.app_context():
 
 class usuario_rutaSchema(ma.Schema):
     class Meta:
-        fields = ('id_usuario_ruta','id_usuario', 'id_ruta')
+        fields = ('id_usuario_ruta','id_usuario', 'id_ruta','favorito')
 
 usuario_ruta_schema = usuario_rutaSchema()
 usuario_rutas_schema = usuario_rutaSchema(many=True)

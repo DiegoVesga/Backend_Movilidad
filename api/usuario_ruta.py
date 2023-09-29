@@ -19,7 +19,8 @@ def saveusuario_ruta():
     id_usuario_ruta = request.json['id_usuario_ruta']
     id_usuario = request.json['id_usuario']
     id_ruta = request.json['id_ruta']
-    new_usuario_ruta = usuario_ruta(id_usuario_ruta,id_usuario,id_ruta)
+    favorito = request.json['favorito']
+    new_usuario_ruta = usuario_ruta(id_usuario_ruta,id_usuario,id_ruta,favorito)
     db.session.add(new_usuario_ruta)
     db.session.commit()
     return "Datos guardados con exitos"
@@ -29,9 +30,11 @@ def updatecusuario_ruta():
     id_usuario_ruta = request.json['id_usuario_ruta']
     id_usuario = request.json['id_usuario']
     id_ruta = request.json['id_ruta']
+    favorito = request.json['favorito']
     nusuario_ruta = usuario_ruta.query.get(id_usuario_ruta) #Select * from Cliente where id = id
     nusuario_ruta.id_usuario=id_usuario
     nusuario_ruta.id_ruta=id_ruta
+    nusuario_ruta.favorito= favorito
     db.session.commit()
     return "Datos Actualizado con exitos"
 
