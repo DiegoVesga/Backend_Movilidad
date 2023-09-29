@@ -2,7 +2,7 @@ from config.db import app, db, ma
 
 class ruta_lugar_estrategico(db.Model):
     __tablename__ = "tblruta_lugar_estrategico"
-    id_lugar = db.Column(db.Integer, db.ForeignKey('tbllugar.id_lugar'), primary_key=True)
+    id_lugar = db.Column(db.Integer, db.ForeignKey('tbllugar_estrategico.id_lugar'), primary_key=True)
     id_ruta = db.Column(db.Integer, db.ForeignKey('tblruta.id_ruta'),primary_key=True)
 
     def __init__(self,  id_lugar, id_ruta):

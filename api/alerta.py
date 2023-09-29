@@ -35,14 +35,14 @@ def updatealerta():
     nalerta.tipo_alerta=tipo_alerta
     nalerta.fecha=fecha
     nalerta.id_ciclo=id_ciclo
-    
+
     db.session.commit()
     return "Datos Actualizado con exitos"
 
 @ruta_alerta.route("/deletealerta/<id>", methods=["DELETE"])
 def deletealerta(id):
     id_alerta= request.json['id_alerta']
-    alertax = alerta.query.get(id_alerta)
+    alertax = alerta.query.get(id_alerta) 
     db.session.delete(alertax)
     db.session.commit()
     
