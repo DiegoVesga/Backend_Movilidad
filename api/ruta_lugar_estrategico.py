@@ -16,18 +16,21 @@ def ruta_lugar_estrategico():
 
 @ruta_ruta_lugar_estrategico.route("/saveruta_lugar_estrategico", methods=["POST"])
 def saveruta_lugar_estrategico():
+    id_lugar_ruta = request,json['id_lugar_ruta']
     id_lugar = request.json['id_lugar']
     id_ruta = request.json['id_ruta']
-    new_ruta_lugar_estrategico = ruta_lugar_estrategico(id_lugar,id_ruta)
+    new_ruta_lugar_estrategico = ruta_lugar_estrategico(id_lugar_ruta,id_lugar,id_ruta)
     db.session.add(new_ruta_lugar_estrategico)
     db.session.commit()
     return "Datos guardados con exitos"
 
 @ruta_ruta_lugar_estrategico.route("/updateruta_lugar_estrategico", methods=["PUT"])
 def updateruta_lugar_estrategico():
+    id_lugar_ruta = request.json['id_lugar_ruta']
     id_lugar = request.json['id_lugar']
     id_ruta = request.json['id_ruta']
-    nruta_lugar_estrategico = ruta_lugar_estrategico.query.get(id_lugar, id_ruta) #Select * from Cliente where id = id
+    nruta_lugar_estrategico = ruta_lugar_estrategico.query.get(id_lugar_ruta,id_lugar, id_ruta) #Select * from Cliente where id = id
+    nruta_lugar_estrategico. id_lugar_ruta = id_lugar_ruta 
     nruta_lugar_estrategico.id_lugar=id_lugar
     nruta_lugar_estrategico.id_ruta=id_ruta
     db.session.commit()
@@ -35,8 +38,7 @@ def updateruta_lugar_estrategico():
 
 @ruta_ruta_lugar_estrategico.route("/deleteruta_lugar_estrategico/<id>", methods=["DELETE"])
 def deleteruta_lugar_estrategico(id):
-    id_lugar = request.json['id_lugar']
-    id_ruta = request.json['id_ruta']
-    ruta_lugar_estrategicox = ruta_lugar_estrategico.query.get(id_lugar, id_ruta)
+    id_lugar_ruta = request.json['id_lugar_ruta']
+    ruta_lugar_estrategicox = ruta_lugar_estrategico.query.get(id_lugar_ruta)
     db.session.delete(ruta_lugar_estrategicox)
     db.session.commit()
