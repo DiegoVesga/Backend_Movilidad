@@ -14,7 +14,7 @@ def lugar_estrategico():
     result = lugar_estrategico_Schema.dump(resultall)
     return jsonify(result)
 
-@ruta_lugar_estrategico.route("/lugar_estrategico", methods=["POST"])
+@ruta_lugar_estrategico.route("/savelugar_estrategico", methods=["POST"])
 def savelugar_estrategico():
     id_lugar = request.json['id_lugar']
     nombre=request.json['nombre']
@@ -23,7 +23,7 @@ def savelugar_estrategico():
     db.session.commit()
     return "Datos guardados con exitos"
 
-@ruta_lugar_estrategico.route("/updateruta", methods=["PUT"])
+@ruta_lugar_estrategico.route("/updatelugar_estrategico", methods=["PUT"])
 def updatelugar_estrategico():
     id_lugar = request.json['id_lugar']
     nombre=request.json['nombre']
@@ -32,7 +32,7 @@ def updatelugar_estrategico():
     db.session.commit()
     return "Datos Actualizado con exitos"
 
-@ruta_lugar_estrategico.route("/deleteruta/<id>", methods=["DELETE"])
+@ruta_lugar_estrategico.route("/deletelugar_estrategico/<id>", methods=["DELETE"])
 def deletelugar_estrategico(id):
     id_lugar = request.json['id_lugar']
     lugarx = lugar_estrategico.query.get(id_lugar)

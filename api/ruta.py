@@ -14,7 +14,7 @@ def ruta():
     result = ruta_schema.dump(resultall)
     return jsonify(result)
 
-@ruta_ruta.route("/ruta", methods=["POST"])
+@ruta_ruta.route("/saveruta", methods=["POST"])
 def saveruta():
     id_ruta = request.json['id_ruta']
     punto_inicio= request.json['punto_inicio']

@@ -34,7 +34,7 @@ def updatecliente():
     db.session.commit()
     return "Datos Actualizado con exitos"
 
-@ruta_ciclovia.route("/deletecliente/<id>", methods=["DELETE"])
+@ruta_ciclovia.route("/deleteciclovia/<id>", methods=["DELETE"])
 def deleteciclovia(id):
     id_ciclo = request.json['id_ciclo']
     cicloviax = ciclovia.query.get(id_ciclo)

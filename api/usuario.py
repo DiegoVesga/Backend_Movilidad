@@ -14,7 +14,7 @@ def usuario():
     result = usuarios_Schema.dump(resultall)
     return jsonify(result)
 
-@ruta_usuario.route("/usuario", methods=["POST"])
+@ruta_usuario.route("/saveusuario", methods=["POST"])
 def saveusuario():
     id_usuario = request.json['id_usuario']
     nombre=request.json['nombre']
@@ -23,7 +23,7 @@ def saveusuario():
     db.session.commit()
     return "Datos guardados con exitos"
 
-@ruta_usuario.route("/updausuario", methods=["PUT"])
+@ruta_usuario.route("/updateusuario", methods=["PUT"])
 def updateusuario():
     id_usuario = request.json['id_usuario']
     nombre=request.json['nombre']
