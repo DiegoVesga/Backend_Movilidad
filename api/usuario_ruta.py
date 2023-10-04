@@ -28,22 +28,32 @@ def saveusuario_ruta(id):
     except Exception as e:
         return f"Hubo un error{str(e)}"
 
-@ruta_usuario_ruta.route("/updateusuario_ruta", methods=["PUT"])
-def updatecusuario_ruta():
-    id_usuario_ruta = request.json['id_usuario_ruta']
-    id_usuario = request.json['id_usuario']
-    id_ruta = request.json['id_ruta']
-    favorito = request.json['favorito']
-    nusuario_ruta = usuario_ruta.query.get(id_usuario_ruta) #Select * from Cliente where id = id
-    nusuario_ruta.id_usuario=id_usuario
-    nusuario_ruta.id_ruta=id_ruta
-    nusuario_ruta.favorito= favorito
-    db.session.commit()
-    return "Datos Actualizado con exitos"
+@ruta_usuario_ruta.route("/updateusuario_ruta/<id>", methods=["PUT"])
+def updatecusuario_ruta(id):
+    try:
+        id_usuario_ruta = usuario_ruta.query.get(id)
+        if not id_usuario_ruta:
+            return "El usuario no esta registrado"
+        id_usuario = request.json['id_usuario']
+        id_ruta = request.json['id_ruta']
+        favorito = request.json['favorito']
+        nusuario_ruta = usuario_ruta.query.get(id_usuario_ruta) #Select * from Cliente where id = id
+        nusuario_ruta.id_usuario=id_usuario
+        nusuario_ruta.id_ruta=id_ruta
+        nusuario_ruta.favorito= favorito
+        db.session.commit()
+        return "Datos Actualizado con exitos"
+    except Exception as e:
+        return f"Hubo un error{str(e)}"
 
 @ruta_usuario_ruta.route("/deleteusuario_ruta/<id>", methods=["DELETE"])
 def deleteusuario_ruta(id):
-    id_usuario_ruta = request.json['id_usuario_ruta']
-    usuario_rutax = usuario_ruta.query.get(id_usuario_ruta)
-    db.session.delete(usuario_rutax)
-    db.session.commit()
+    try:
+        id_usuario_ruta = usuario_ruta.query.get(id)
+        if not id_usuario_ruta:
+            return "El usuario no esta registrado"
+        usuario_rutax = usuario_ruta.query.get(id_usuario_ruta)
+        db.session.delete(usuario_rutax)
+        db.session.commit()
+    except Exception as e:
+        return f"Hubo un error{str(e)}"

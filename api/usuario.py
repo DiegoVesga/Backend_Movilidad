@@ -14,7 +14,7 @@ def getusuario():
     result = usuarios_schema.dump(resultall)
     return jsonify(result)
 
-@ruta_usuario.route("/saveusuario", methods=["POST"])
+@ruta_usuario.route("/saveusuario", methods=["POST"]) #Para enviar o subir un registro
 def saveusuario():
     try:
         id_usuario = request.json['id_usuario']
@@ -27,7 +27,7 @@ def saveusuario():
         return f"Hubo un error {str(e)}"
     
 
-@ruta_usuario.route("/updateusuario/<id>", methods=["PUT"])
+@ruta_usuario.route("/updateusuario/<id>", methods=["PUT"]) #Actualizar registro
 def updateusuario(id):
     try:
         id_usuario = usuario.query.get(id)
