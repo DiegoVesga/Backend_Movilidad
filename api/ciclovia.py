@@ -16,16 +16,22 @@ def getciclovia():
 
 @ruta_ciclovia.route("/saveciclovia", methods=["POST"])
 def saveciclovia():
+ try:
     id_inicio = request.json['id_inicio']
     id_fin = request.json['id_fin']
     new_ciclovia = ciclovia(id_inicio,id_fin)
     db.session.add(new_ciclovia)
     db.session.commit()
     return "Datos guardados con exitos"
+ except Exception as e:
+        return f"Hubo un error {str(e)}"
 
-@ruta_ciclovia.route("/updateciclovia", methods=["PUT"])
-def updatecliente():
-    id_ciclo = request.json['id_ciclo']
+@ruta_ciclovia.route("/updateciclovia/<id>", methods=["PUT"])
+def updatecliente(id):
+ try:
+    id_ciclo = ciclovia.query.get(id)
+    if not id_ciclo:
+            return "ciclovia no esta registrado"
     dir_inicio = request.json['dir_inicio']
     dir_fin = request.json['dir_fin']
     nciclovia = ciclovia.query.get(id_ciclo) #Select * from Cliente where id = id
@@ -33,11 +39,19 @@ def updatecliente():
     nciclovia.dir_fin=dir_fin
     db.session.commit()
     return "Datos Actualizado con exitos"
+ except Exception as e:
+        return f"Hubo un error {str(e)}"
 
 @ruta_ciclovia.route("/deleteciclovia/<id>", methods=["DELETE"])
 def deleteciclovia(id):
-    id_ciclo = request.json['id_ciclo']
+  try:
+    id_ciclo = ciclovia.query.get(id)
+    if not id_ciclo:
+            return "ciclovia no esta registrado"
     cicloviax = ciclovia.query.get(id_ciclo)
     db.session.delete(cicloviax)
     db.session.commit()
+    return "se ha eliminado la ciclovia"
+  except Exception as e:
+        return f"Hubo un error{str(e)}"
     

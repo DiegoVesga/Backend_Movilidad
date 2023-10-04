@@ -16,18 +16,25 @@ def getalerta():
 
 @ruta_alerta.route("/savealerta", methods=["POST"])
 def savealerta():
-    id_alerta = request.json['id_alerta']
-    tipo_alerta= request.json['tipo_alerta']
-    fecha=request.json["fecha"]
-    id_ciclo=request.json["id_ciclo"]
-    new_alerta = alerta(id_alerta,tipo_alerta,fecha,id_ciclo)
-    db.session.add(new_alerta)
-    db.session.commit()
-    return "Datos guardados con exitos"
+    try:
+        id_alerta = request.json['id_alerta']
+        tipo_alerta= request.json['tipo_alerta']
+        fecha=request.json["fecha"]
+        id_ciclo=request.json["id_ciclo"]
+        new_alerta = alerta(id_alerta,tipo_alerta,fecha,id_ciclo)
+        db.session.add(new_alerta)
+        db.session.commit()
+        return "Datos guardados con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
+        
 
-@ruta_alerta.route("/updatealerta", methods=["PUT"])
-def updatealerta():
-    id_alerta = request.json['id_alerta']
+@ruta_alerta.route("/updatealerta/<id>", methods=["PUT"])
+def updatealerta(id):
+ try:
+    id_alerta = alerta.query.get(id)
+    if not id_alerta:
+        return "Id de alerta no exite/no se encuentra registada"
     tipo_alerta= request.json['tipo_alerta']
     fecha=request.json["fecha"]
     id_ciclo=request.json["id_ciclo"]
@@ -38,11 +45,21 @@ def updatealerta():
 
     db.session.commit()
     return "Datos Actualizado con exitos"
+ except Exception as e:
+     return f"Hubo un error {str(e)}"
+
 
 @ruta_alerta.route("/deletealerta/<id>", methods=["DELETE"])
 def deletealerta(id):
-    id_alerta= request.json['id_alerta']
+  try:
+    id_alerta = alerta.query.get(id)
+    if not id_alerta:
+        return "Id de alerta no exite/no se encuentra registada"
+
     alertax = alerta.query.get(id_alerta) 
     db.session.delete(alertax)
     db.session.commit()
+    return "alerta eliminada con exito"
+  except Exception as e:
+     return f"Hubo un error{str(e)}"
     
