@@ -5,3 +5,4 @@ paso 4: cd ..;  cd ..
 paso 5: pip install flask flask-sqlalchemy flask-marshmallow marshmallow pymysql sqlalchemy
 Paso 6: pip freeze > requirements.txt
 Paso 7: pip install -r requirements.txt
+pip install marshmallow-sqlalchemy (nunca se instala este desgraciado,toca aparte)
