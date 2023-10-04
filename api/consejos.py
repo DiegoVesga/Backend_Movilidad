@@ -35,7 +35,6 @@ def updateconsejos(id):
             return "El consejo no se encuentra"#... muestra el mensaje
         texto_consejo = request.json['texto_consejo']
         id_consejo.texto_consejo=texto_consejo
-        
         db.session.commit()
         return "Datos Actualizado con exitos"
     except Exception as e:

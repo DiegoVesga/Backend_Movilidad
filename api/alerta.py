@@ -38,15 +38,14 @@ def updatealerta(id):
     tipo_alerta= request.json['tipo_alerta']
     fecha=request.json["fecha"]
     id_ciclo=request.json["id_ciclo"]
-    nalerta = alerta.query.get(id_alerta) #Select * from Cliente where id = id
-    nalerta.tipo_alerta=tipo_alerta
-    nalerta.fecha=fecha
-    nalerta.id_ciclo=id_ciclo
+    id_alerta.tipo_alerta=tipo_alerta
+    id_alerta.fecha=fecha
+    id_alerta.id_ciclo=id_ciclo
 
     db.session.commit()
     return "Datos Actualizado con exitos"
  except Exception as e:
-     return f"Hubo un error {str(e)}"
+     return f"Hubo un error:  {str(e)}"
 
 
 @ruta_alerta.route("/deletealerta/<id>", methods=["DELETE"])

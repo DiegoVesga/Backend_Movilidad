@@ -34,9 +34,8 @@ def updatecliente(id):
             return "ciclovia no esta registrado"
     dir_inicio = request.json['dir_inicio']
     dir_fin = request.json['dir_fin']
-    nciclovia = ciclovia.query.get(id_ciclo) #Select * from Cliente where id = id
-    nciclovia.dir_inicio=dir_inicio
-    nciclovia.dir_fin=dir_fin
+    id_ciclo.dir_inicio=dir_inicio
+    id_ciclo.dir_fin=dir_fin
     db.session.commit()
     return "Datos Actualizado con exitos"
  except Exception as e:

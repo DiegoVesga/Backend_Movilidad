@@ -34,8 +34,7 @@ def updateusuario(id):
         if not id_usuario:
             return "El usuario no esta registrado"
         nombre=request.json['nombre']
-        nusuario = usuario.query.get(id_usuario) #Select * from Cliente where id = id
-        nusuario.nombre=nombre 
+        id_usuario.nombre=nombre 
         db.session.commit()
         return "Datos Actualizado con exitos"
     except Exception as e:

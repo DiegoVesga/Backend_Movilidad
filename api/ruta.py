@@ -35,9 +35,8 @@ def updateruta(id):
             return "El usuario no esta registrado"
         punto_inicio= request.json['punto_inicio']
         punto_final= request.json['punto_final']
-        nruta = ruta.query.get(id_ruta) #Select * from Cliente where id = id
-        nruta.punto_inicio=punto_inicio
-        nruta.punto_final=punto_final  
+        id_ruta.punto_inicio=punto_inicio
+        id_ruta.punto_final=punto_final  
         db.session.commit()
         return "Datos Actualizado con exitos"
     except Exception as e:

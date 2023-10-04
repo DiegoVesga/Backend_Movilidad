@@ -35,10 +35,8 @@ def updateciclo_ruta(id):
        return " ciclo_ruta no esta registrado"
     id_ciclo = request.json['id_ciclo']
     id_ruta = request.json['id_ruta']
-    nciclo_ruta = ciclo_ruta.query.get(id_ciclo_ruta,id_ciclo, id_ruta) #Select * from Cliente where id = id
-    nciclo_ruta.id_ciclo_ruta= id_ciclo_ruta
-    nciclo_ruta.id_ciclo=id_ciclo
-    nciclo_ruta.id_ruta=id_ruta
+    id_ciclo_ruta.id_ciclo=id_ciclo
+    id_ciclo_ruta.id_ruta=id_ruta
     db.session.commit()
     return "Datos Actualizado con exitos"
   except Exception as e:
