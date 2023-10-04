@@ -9,7 +9,7 @@ ruta_usuario = Blueprint("ruta_usuario",__name__)
 
 
 @ruta_usuario.route("/usuario", methods=["GET"])
-def usuario():
+def getusuario():
     resultall = usuario.query.all()
     result = usuarios_schema.dump(resultall)
     return jsonify(result)

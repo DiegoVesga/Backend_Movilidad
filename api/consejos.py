@@ -9,7 +9,7 @@ ruta_consejos = Blueprint("ruta_consejos",__name__)
 
 
 @ruta_consejos.route("/consejos", methods=["GET"])
-def consejos():
+def getconsejos():
     resultall = consejos.query.all()
     result = consejoss_Schema.dump(resultall)
     return jsonify(result)

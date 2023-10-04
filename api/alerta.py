@@ -9,7 +9,7 @@ ruta_alerta = Blueprint("ruta_alerta",__name__)
 
 
 @ruta_alerta.route("/alerta", methods=["GET"])
-def alerta():
+def getalerta():
     resultall = alerta.query.all()
     result = alerta_schema.dump(resultall)
     return jsonify(result)

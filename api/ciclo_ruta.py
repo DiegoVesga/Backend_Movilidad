@@ -9,7 +9,7 @@ ruta_ciclo_ruta = Blueprint("ruta_ciclo_ruta",__name__)
 
 
 @ruta_ciclo_ruta.route("/ciclo_ruta", methods=["GET"])
-def ciclo_ruta():
+def getciclo_ruta():
     resultall = ciclo_ruta.query.all()
     result = ciclo_ruta_schema.dump(resultall)
     return jsonify(result)

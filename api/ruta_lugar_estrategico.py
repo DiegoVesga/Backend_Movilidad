@@ -9,7 +9,7 @@ ruta_ruta_lugar_estrategico = Blueprint("ruta_ruta_lugar_estrategico",__name__)
 
 
 @ruta_ruta_lugar_estrategico.route("/ruta_lugar_estrategico", methods=["GET"])
-def ruta_lugar_estrategico():
+def getruta_lugar_estrategico():
     resultall = ruta_lugar_estrategico.query.all()
     result = ruta_lugar_estrategico_Schema.dump(resultall)
     return jsonify(result)

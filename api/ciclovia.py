@@ -9,7 +9,7 @@ ruta_ciclovia = Blueprint("ruta_ciclovia",__name__)
 
 
 @ruta_ciclovia.route("/ciclovia", methods=["GET"])
-def ciclovia():
+def getciclovia():
     resultall = ciclovia.query.all()
     result = ciclovia_schema.dump(resultall)
     return jsonify(result)
