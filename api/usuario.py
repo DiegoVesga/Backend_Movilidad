@@ -27,10 +27,10 @@ def saveusuario():
         return f"Hubo un error {str(e)}"
     
 
-@ruta_usuario.route("/updateusuario", methods=["PUT"])
-def updateusuario():
+@ruta_usuario.route("/updateusuario/<id>", methods=["PUT"])
+def updateusuario(id):
     try:
-        id_usuario = request.json['id_usuario']
+        id_usuario = usuario.query.get(id)
         if not id_usuario:
             return "El usuario no esta registrado"
         nombre=request.json['nombre']
@@ -44,7 +44,7 @@ def updateusuario():
 @ruta_usuario.route("/deleteusuario/<id>", methods=["DELETE"])
 def deleteusuario(id):
     try:
-        id_usuario = request.json['id_usuario']
+        id_usuario = usuario.query.get(id)
         if not id_usuario:
             return "El usuario no se encuentra en la base de datos"
         usuariox = usuario.query.get(id_usuario)

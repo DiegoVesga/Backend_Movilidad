@@ -14,16 +14,19 @@ def getusuario_ruta():
     result = usuario_ruta_schema.dump(resultall)
     return jsonify(result)
 
-@ruta_usuario_ruta.route("/saveusuario_ruta", methods=["POST"])
-def saveusuario_ruta():
-    id_usuario_ruta = request.json['id_usuario_ruta']
-    id_usuario = request.json['id_usuario']
-    id_ruta = request.json['id_ruta']
-    favorito = request.json['favorito']
-    new_usuario_ruta = usuario_ruta(id_usuario_ruta,id_usuario,id_ruta,favorito)
-    db.session.add(new_usuario_ruta)
-    db.session.commit()
-    return "Datos guardados con exitos"
+@ruta_usuario_ruta.route("/saveusuario_ruta/<id>", methods=["POST"])
+def saveusuario_ruta(id):
+    try:   
+        id_usuario_ruta = request.json['id_usuario_ruta']
+        id_usuario = request.json['id_usuario']
+        id_ruta = request.json['id_ruta']
+        favorito = request.json['favorito']
+        new_usuario_ruta = usuario_ruta(id_usuario_ruta,id_usuario,id_ruta,favorito)
+        db.session.add(new_usuario_ruta)
+        db.session.commit()
+        return "Datos guardados con exitos"
+    except Exception as e:
+        return f"Hubo un error{str(e)}"
 
 @ruta_usuario_ruta.route("/updateusuario_ruta", methods=["PUT"])
 def updatecusuario_ruta():
