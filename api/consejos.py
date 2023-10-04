@@ -33,12 +33,8 @@ def updateconsejos(id):
         id_consejo = consejos.query.get(id) #Obtiene el dato el cual se va a buscar (.GET)
         if not id_consejo: #Si no lo encuentra...
             return "El consejo no se encuentra"#... muestra el mensaje
-        id_usuario = request.json['id_usuario']
         texto_consejo = request.json['texto_consejo']
-
-        nconsejos = consejos.query.get(id_consejos) #Select * from Cliente where id = id
-        nconsejos.id_usuario=id_usuario
-        nconsejos.texto_consejo=texto_consejo
+        id_consejo.texto_consejo=texto_consejo
         
         db.session.commit()
         return "Datos Actualizado con exitos"
