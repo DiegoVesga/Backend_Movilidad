@@ -16,29 +16,43 @@ def getconsejos():
 
 @ruta_consejos.route("/saveconsejos", methods=["POST"])
 def saveconsejos():
-    id_consejos = request.json['id_consejos']
-    id_usuario = request.json['id_usuario']
-    texto_consejo = request.json['texto_consejo']
-    new_consejos= consejos(id_consejos,id_usuario,texto_consejo)
-    db.session.add(new_consejos)
-    db.session.commit()
-    return "Datos guardados con exitos"
+    try:
+        id_consejos = request.json['id_consejos']
+        id_usuario = request.json['id_usuario']
+        texto_consejo = request.json['texto_consejo']
+        new_consejos= consejos(id_consejos,id_usuario,texto_consejo)
+        db.session.add(new_consejos)
+        db.session.commit()
+        return "Datos guardados con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
 
-@ruta_consejos.route("/updateconsejos", methods=["PUT"])
-def updateconsejos():
-    id_consejos = request.json['id_consejos']
-    id_usuario = request.json['id_usuario']
-    texto_consejo = request.json['texto_consejo']
-    nconsejos = consejos.query.get(id_consejos) #Select * from Cliente where id = id
-    nconsejos.id_usuario=id_usuario
-    nconsejos.texto_consejo=texto_consejo
-    db.session.commit()
-    return "Datos Actualizado con exitos"
+@ruta_consejos.route("/updateconsejos/<id>", methods=["PUT"])
+def updateconsejos(id):
+    try:
+        id_consejo = consejos.query.get(id) #Obtiene el dato el cual se va a buscar (.GET)
+        if not id_consejo: #Si no lo encuentra...
+            return "El consejo no se encuentra"#... muestra el mensaje
+        id_usuario = request.json['id_usuario']
+        texto_consejo = request.json['texto_consejo']
+
+        nconsejos = consejos.query.get(id_consejos) #Select * from Cliente where id = id
+        nconsejos.id_usuario=id_usuario
+        nconsejos.texto_consejo=texto_consejo
+        
+        db.session.commit()
+        return "Datos Actualizado con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
 
 @ruta_consejos.route("/deleteconsejos/<id>", methods=["DELETE"])
 def deleteconsejos(id):
-    id_consejos = request.json['id_consejos']
-    consejosx = consejos.query.get(id_consejos)
-    db.session.delete(consejosx)
-    db.session.commit()
+    try:
+        id_consejo= consejos.query.get(id)
+        if not id_consejo: #Si no lo encuentra...
+            return "El consejo no esta registrado"#... muestra el mensaje  
+        db.session.delete(id_consejo)
+        db.session.commit()
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
     

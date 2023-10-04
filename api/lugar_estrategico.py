@@ -16,26 +16,38 @@ def getlugar_estrategico():
 
 @ruta_lugar_estrategico.route("/savelugar_estrategico", methods=["POST"])
 def savelugar_estrategico():
-    id_lugar = request.json['id_lugar']
-    nombre=request.json['nombre']
-    new_lugar_estrategico= lugar_estrategico(id_lugar,nombre)
-    db.session.add(new_lugar_estrategico)
-    db.session.commit()
-    return "Datos guardados con exitos"
+    try:
+        id_lugar = request.json['id_lugar']
+        nombre=request.json['nombre']
+        new_lugar_estrategico= lugar_estrategico(id_lugar,nombre)
+        db.session.add(new_lugar_estrategico)
+        db.session.commit()
+        return "Datos guardados con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
 
-@ruta_lugar_estrategico.route("/updatelugar_estrategico", methods=["PUT"])
-def updatelugar_estrategico():
-    id_lugar = request.json['id_lugar']
-    nombre=request.json['nombre']
-    nlugar = lugar_estrategico.query.get(id_lugar) #Select * from Cliente where id = id
-    nlugar.nombre=nombre 
-    db.session.commit()
-    return "Datos Actualizado con exitos"
+@ruta_lugar_estrategico.route("/updatelugar_estrategico/<id>", methods=["PUT"])
+def updatelugar_estrategico(id):
+    try:
+        id_lugar=lugar_estrategico.query.get(id)
+        if not id_lugar:
+            return "El lugar estrategico no se encuentra"
+        nombre=request.json['nombre']
+        nlugar = lugar_estrategico.query.get(id_lugar) #Select * from Cliente where id = id
+        nlugar.nombre=nombre 
+        db.session.commit()
+        return "Datos Actualizado con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
 
 @ruta_lugar_estrategico.route("/deletelugar_estrategico/<id>", methods=["DELETE"])
 def deletelugar_estrategico(id):
-    id_lugar = request.json['id_lugar']
-    lugarx = lugar_estrategico.query.get(id_lugar)
-    db.session.delete(lugarx)
-    db.session.commit()
+    try:
+        id_lugar=lugar_estrategico.query.get(id)
+        if not id_lugar:
+            return "El lugar estrategico no se encuentra"
+        db.session.delete(id_lugar)
+        db.session.commit()
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
     
