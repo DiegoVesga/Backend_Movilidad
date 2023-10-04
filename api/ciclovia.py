@@ -48,8 +48,7 @@ def deleteciclovia(id):
     id_ciclo = ciclovia.query.get(id)
     if not id_ciclo:
             return "ciclovia no esta registrado"
-    cicloviax = ciclovia.query.get(id_ciclo)
-    db.session.delete(cicloviax)
+    db.session.delete(id_ciclo)
     db.session.commit()
     return "se ha eliminado la ciclovia"
   except Exception as e:

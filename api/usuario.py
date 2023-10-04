@@ -45,10 +45,9 @@ def updateusuario(id):
 def deleteusuario(id):
     try:
         id_usuario = usuario.query.get(id)
-        if not id_usuario:
-            return "El usuario no se encuentra en la base de datos"
-        usuariox = usuario.query.get(id_usuario)
-        db.session.delete(usuariox)
+        if id_usuario is None:
+            return jsonify("El usuario no se encuentra en la base de datos")
+        db.session.delete(id_usuario)
         db.session.commit()
         return "El usuario ha sido eliminado con exito"
     except Exception as e:

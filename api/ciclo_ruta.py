@@ -50,8 +50,7 @@ def deleteciclo_ruta(id):
     id_ciclo_ruta = ciclo_ruta.query.get(id)
     if not id_ciclo_ruta:
        return " ciclo_ruta no esta registrado"
-    ciclo_rutax = ciclo_ruta.query.get(id_ciclo_ruta)
-    db.session.delete(ciclo_rutax)
+    db.session.delete(id_ciclo_ruta)
     db.session.commit()
     return "se ha eliminado"
  except Exception as e:

@@ -49,8 +49,7 @@ def deleteruta(id):
         id_ruta = ruta.query.get(id)
         if not id_ruta:
             return "El usuario no esta registrado"
-        rutax = ruta.query.get(id_ruta)
-        db.session.delete(rutax)
+        db.session.delete(id_ruta)
         db.session.commit()
     except Exception as e:
         return f"Hubo un error {str(e)}"

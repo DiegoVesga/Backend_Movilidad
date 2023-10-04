@@ -55,9 +55,7 @@ def deletealerta(id):
     id_alerta = alerta.query.get(id)
     if not id_alerta:
         return "Id de alerta no exite/no se encuentra registada"
-
-    alertax = alerta.query.get(id_alerta) 
-    db.session.delete(alertax)
+    db.session.delete(id_alerta)
     db.session.commit()
     return "alerta eliminada con exito"
   except Exception as e:
