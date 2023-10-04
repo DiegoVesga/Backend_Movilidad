@@ -35,10 +35,8 @@ def updateruta_lugar_estrategico(id):
             return "NO existe el Lugar_Ruta"
         id_lugar = request.json['id_lugar']
         id_ruta = request.json['id_ruta']
-        nruta_lugar_estrategico = ruta_lugar_estrategico.query.get(id_lugar_ruta,id_lugar, id_ruta) #Select * from Cliente where id = id
-        nruta_lugar_estrategico. id_lugar_ruta = id_lugar_ruta 
-        nruta_lugar_estrategico.id_lugar=id_lugar
-        nruta_lugar_estrategico.id_ruta=id_ruta
+        id_lugar_ruta.id_lugar=id_lugar
+        id_lugar_ruta.id_ruta=id_ruta
         db.session.commit()
         return "Datos Actualizado con exitos"
     except Exception as e:

@@ -33,8 +33,7 @@ def updatelugar_estrategico(id):
         if not id_lugar:
             return "El lugar estrategico no se encuentra"
         nombre=request.json['nombre']
-        nlugar = lugar_estrategico.query.get(id_lugar) #Select * from Cliente where id = id
-        nlugar.nombre=nombre 
+        id_lugar.nombre=nombre 
         db.session.commit()
         return "Datos Actualizado con exitos"
     except Exception as e:
