@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins';
+}
+
+body {
+    margin: 0;
+}
+
+#bg {
+    width: 100%;
+}
+
+.navv {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+}
+
+
+#navbar {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding-top: 10px;
+
+}
+
+
+#Logo {
+    width: 280px;
+    height: 70px;
+}
+
+.button_left {
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: #fff;
+    margin-left: -30%;
+}
+
+.button_right {
+    margin-right: -25%;
+    display: grid;
+    place-items: center;
+
+}
+
+.button_right a {
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: large;
+    font-family: 'Poppins';
+    font-weight: 700;
+
+}
