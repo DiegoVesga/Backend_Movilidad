@@ -5,21 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/config/Static/Styles/Home2.css">
     <title>Biciquilla</title>
+    
 </head>
 <body>
     <header>
-        <nav>
-            
+        <div> <img  id="bg" src="/config/Static/IMG/biciquillafondo2-01.jpg"></div>
+        <nav class="navv">
             <ul id="navbar">
-                <a href="#mainheader" class="Logo"><img src="/config/Static/IMG/logo2-01.png" alt=""></a>
-                <li><a href="#Home" class="3">Home</a></li>
-                <li><a href="#Rutas" class="3">Rutas</a></li>
-                <li><a href="#Comunidad" class="3">Comunidad</a></li>
-                <li><a href="#Log in" class="Login">Log in</a></li>
-                <li><a href="#Sign up" class="Signup">Sign up</a></li>
+                <li class="button_left"><a href="#mainheader" ><img id="Logo" src="/config/Static/IMG/logo2-01.png" alt=""></a></li>
+                <li class="button_right"><a href="#Home" class="3">Home</a></li>
+                <li class="button_right"><a href="#Rutas" class="3">Rutas</a></li>
+                <li class="button_right nuevaclase"><a href="#Comunidad" class="3">Comunidad</a></li>
+                <li class="button_right nuevaclase" ><a href="#Log in" class="Login">Log in</a></li>
+                <li class="button_right nuevaclase"><a href="#Sign up" class="Signup">Sign up</a></li>
             </ul>
         </nav>
     </header>
+    <section class="ruta">
+        <div id="left">
+            <img  id="mapme"src="/config/Static/IMG/mapa-01.png">
+
+        </div>
+        <div id="right">
+            <div id="up">
+                <h1 id="vamos">A donde vamos?</h1>
+                <label class="leinput">Dir Inicio</label>
+                <br>
+                <input class="dir"  type="text" id="nombre" placeholder="Escribe tu nombre">
+                <br>
+                <br>
+                <label class="leinput">Dir Final</label>
+                <br>
+                <input class="dir" type="text" id="nombre" placeholder="Escribe tu nombre">
+
+            </div>
+            <div id="down">
+                <button>vamos</button>
+                <div id="vale"><img  id="valecita"src="/config/Static/IMG/valecita-01.png"></div>
+                
+
+            </div>
+        </div>
+    </section>
     
 </body>
 </html>
