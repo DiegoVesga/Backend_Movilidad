@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0%;
@@ -25,16 +25,18 @@ h2{
 }
 
 .Logo {
-    padding-left: 40px;
+   
     width: 90px;
     height: 90px;
 
 }
 
 #navbar {
+    display: flex;
+    justify-content: center;
     background-color: transparent;
     padding-top: 40px;
-    display: flex;
+    
 
 }
 
@@ -54,11 +56,12 @@ h2{
 
 
 ul {
+    
     padding-top: 20px;
     list-style: none;
     padding-left: 60%;
     margin: 10px;
-    display: flex;
+    
 }
 
 ul li {
@@ -82,21 +85,25 @@ ul li {
 
   .mapinicio{
     padding-left: 80%;
+    font-family: 'Modak';
+    font-weight: 200;
+    color: #2CFFFF;
   }
 
   .dirinicio{
     margin-left: 80%;
+    font-family: 'Poppins', sans-serif;
   }
   .dirfinal{
     margin-left: 80%;
+    font-family: 'Modak';
   }
 
-  .inicio{
-    margin-left: 80%;
+  .leinput{
+    color:#fff;
+    font-family: 'poppins','sanserif';
   }
-  .final{
-    margin-left: 80%;
-  }
+ 
 
   .map{
     padding-top: 15%;
@@ -106,4 +113,11 @@ ul li {
 
   .valecita{
     margin-left: 19.6%;
+  }
+
+  .rutica{
+    
+
+
+
   }
