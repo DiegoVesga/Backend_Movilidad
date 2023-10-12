@@ -74,21 +74,26 @@ body{
 #left{
     display: grid;
     place-items: center;
+    padding-left: 20%;
 }
 
 #right{
   display: flex;
   flex-flow: column;
+  padding-left: 10%;
 }
 
 #mapme{
-    width: 700px;
-    height: 700px;
+    margin-top: 10%;
+    width: 600px;
+    height: 600px;
+    margin-bottom: 20%;
 }
 #up{
     width: 100%;
     display: flex;
     flex-flow: column;
+    
 }
 
 #vamos{
@@ -116,10 +121,44 @@ body{
     display: flex;
 }
 #vale{
+    margin: -4.5px;
+    margin-left: 400px;
     width: 100%;
 }
 #valecita{
-    width: 100%;
+    
+     
     height: 100px;
     width: 100px;
+
+}
+
+#first_input{
+    margin-top: -100px;
+    padding-top: -200px;
+}
+
+#boton_vamos{
+    height: 50px;
+    width: 200px;
+    border: none; /* Quita el borde del botón */
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5%;
+    color:black;
+    background-color: #FFDC31;
+    font-weight: bold;
+    font-size: 150%;
+    
+    margin-left: 20%;
+    padding: 10px 20px;
+}
+
+#comunidad{
+    display: flex;
+    background-color: blue;
+    color: white;
+    margin-top: -20px;
+    width: 100%;
+   
 }
