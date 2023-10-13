@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request,json
+from flask import Blueprint, jsonify, request,json,session,render_template
 from config.db import db, app, ma
 from models.usuario import usuario, usuario_schema,usuarios_schema
 
@@ -17,9 +17,10 @@ def getusuario():
 @ruta_usuario.route("/saveusuario", methods=["POST"]) #Para enviar o subir un registro
 def saveusuario():
     try:
-        id_usuario = request.json['id_usuario']
+        username=request.json['username']
+        password=request.json['password']
         nombre=request.json['nombre']
-        new_usuario= usuario(id_usuario,nombre)
+        new_usuario= usuario(username,password,nombre)
         db.session.add(new_usuario)
         db.session.commit()
         return "Datos guardados con exitos"
@@ -33,7 +34,11 @@ def updateusuario(id):
         id_usuario = usuario.query.get(id)
         if not id_usuario:
             return "El usuario no esta registrado"
+        username=request.json['username']
+        password=request.json['password']
         nombre=request.json['nombre']
+        id_usuario.username=username 
+        id_usuario.password=password 
         id_usuario.nombre=nombre 
         db.session.commit()
         return "Datos Actualizado con exitos"
@@ -52,3 +57,38 @@ def deleteusuario(id):
     except Exception as e:
         return f"Hubo un error{str(e)}"
     
+
+@app.route("/Registro", methods=["POST"]) #Para enviar o subir un registro
+def saveusuario():
+    try:
+        
+        username=request.form['usuario']
+        password=request.form['contrasena']
+        nombre=request.form['nombre']
+        print(username,password,nombre)
+        new_usuario= usuario(username,password,nombre)
+        db.session.add(new_usuario)
+        db.session.commit()
+        return "Datos guardados con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
+    
+
+
+@app.route("/iniciosesion", methods=["POST"]) #Para enviar o subir un registro
+def logusuario():
+
+    usernamex=request.form['usuario']
+    passwordx=request.form['contrasena']
+    usuariox= usuario.query.filter_by(username=usernamex,password=passwordx).first()
+    if usuariox :
+        session['usuario']=usuariox.username
+        return "bien"
+    else:
+        return "mal"
+    
+    
+
+
+
+

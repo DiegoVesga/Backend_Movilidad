@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/config/static/Styles/Loginin.css">
+    <link rel="stylesheet" href="/config/static/Styles/Signup.css">
     <title>Sign up</title>
 </head>
 
@@ -13,29 +13,24 @@
         <div> <img id="bg" src="/config/static/IMG/fondo23.jpg"></div>
         <nav class="navv">
             <ul id="navbar">
-                <li class="button_left"><a href="#mainheader"><img id="Logo" src="/config/Static/IMG/logo2-01.png"alt=""></a></li>
+                <li class="button_left"><a href="#mainheader"><img id="Logo" src="/config/Static/IMG/logo2-01.png"
+                            alt=""></a></li>
                 <li class="button_right"><a href="#Home" class="3">Home</a></li>
                 <li class="button_right"><a href="#ruta" class="3">Rutas</a></li>
                 <li class="button_right nuevaclase"><a href="#Comunidad" class="3">Comunidad</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <section class="form-login">
-            <h5>Inicio de sesion</h5>
-            <form action="/iniciosesion" method="post" >
-                <input class="controls" type="text" name="usuario" value="" placeholder="Usuario">
-                <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña">
-                <button class="buttons" type="submit">Vamos!</button>
-            </form>
-            <p><a href="#">¿Olvidastes tu Contraseña?</a></p>
-        </section>
-    </div>
-        
 
-
-
-
+    <section class="form-login">
+        <h5>Registrate</h5>
+        <form action="/Registro" method="POST">
+            <input class="controls" type="text" name="usuario" value="" placeholder="Usuarname">
+            <input class="controls" type="password" name="contrasena" value="" placeholder="Contraseña">
+            <input class="controls" type="text" name="nombre" value="" placeholder="Nombre">
+            <button class="buttons" type="submit">Registro!</button>
+        </form>
+    </section>
 </body>
 
 </html>

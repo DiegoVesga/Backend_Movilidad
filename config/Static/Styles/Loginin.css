@@ -60,10 +60,6 @@ body {
 
 }
 
-.container{
-    z-index: 2;
-}
-
 .form-login {
     position: relative;
     width: 400px;
@@ -103,6 +99,7 @@ body {
     border: none;
     color: rgb(0, 0, 0);
     margin-bottom: 16px;
+    margin-top: 20px;
     font-size: large;
     font-family: 'Poppins';
     font-weight: 700;
