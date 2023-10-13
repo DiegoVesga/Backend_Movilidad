@@ -62,7 +62,7 @@ body{
 
 .cuadrito p{
     font-family: 'Modak';
-    font-size: 50px;
+    font-size: 70px;
     font-weight: normal;
 }
 
@@ -222,22 +222,27 @@ body{
     flex-grow: 1;
 }
 
-.alerts footer {
+#foot {
     background-color: black;
     width: 100%;
-    height: 80px;
+    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-.alerts .cuadro {
+#foot p{
+    color: white;
+}
+
+#cuadro {
     background-color: black;
     float: right;
-    height: 300px;
-    width: 27%;
+    height: 740px;
+    width: 90%;
     position: relative;
     bottom: 50px;
-    border-radius: 14%;
+    border-radius: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -266,7 +271,7 @@ body{
 main {
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: center;
     margin-right: 20px;
 }
 
@@ -319,4 +324,61 @@ main {
 .end img{
     position: relative;
     right: 120px;
+}
+
+#alert{
+    color: #FFDC31;
+    font-family: "Poppins";
+    font-size: 60px;
+}
+#concej{
+    color:#2CFFFF;
+    font-family: "Poppins";
+    font-size: 60px;
+}
+#cuadro .items{
+    background-color: white;
+    border-radius: 10px;
+    padding: 2%;
+
+}
+#cuadro {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(4,1fr);
+    grid-template-areas:
+    "alert ."
+    "first-child second-child"
+    "concej ."
+    "third-child fourth-child"
+    
+    ;
+    gap: 15px;
+}
+#alert {
+grid-area: alert;
+
+}
+#concej{
+    grid-area: concej;
+
+}
+
+#cuadro .items:first-of-type {
+    grid-area: first-child;
+}
+#cuadro .items:nth-of-type(2) {
+    grid-area: second-child;
+}
+#cuadro .items:nth-of-type(3) {
+    grid-area: third-child;
+}
+#cuadro .items:last-of-type {
+    grid-area: fourth-child;
+}
+
+#cuadro .items h3{
+    font-weight: bold;
+    font-size: 30px;
 }
