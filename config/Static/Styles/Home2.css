@@ -48,6 +48,26 @@ body{
     
 }
 
+.cuadrito{
+    height: 120px;
+    width: 40%;
+    background-color: black;
+    color: #FFDC31;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-bottom-right-radius: 45px
+}
+
+.cuadrito p{
+    font-family: 'Modak';
+    font-size: 50px;
+    font-weight: normal;
+}
+
+
+
 .button_right a{
     display: grid;
     place-items: center;
@@ -161,4 +181,142 @@ body{
     margin-top: -20px;
     width: 100%;
    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.alerts {
+    background-image: url('../IMG/fondo23.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.alerts .cuadro-izq {
+    background-color: black;
+    width: 40%;
+    height: 120px;
+    border-bottom-right-radius: 45px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuadro-izq h2 {
+    color: #FFDC31;
+    font-size: 50px;
+    font-family: 'Modak';
+    font-weight: normal;
+}
+
+.alerts main {
+    min-height: 100vh;
+    flex-grow: 1;
+}
+
+.alerts footer {
+    background-color: black;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.alerts .cuadro {
+    background-color: black;
+    float: right;
+    height: 300px;
+    width: 27%;
+    position: relative;
+    bottom: 50px;
+    border-radius: 14%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadro .items {
+    margin-bottom: 13px;
+    background-color: white;
+    width: 90%;
+    height: 58px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    padding-left: 10px;
+}
+
+.cuadro .items h3 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cuadro .items p {
+    font-size: 12px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 20px;
+}
+
+.flechas-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+}
+
+.flechas-container .flechas:last-child {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid white;
+    border-bottom: 20px solid transparent;
+    transform: rotate(180deg);
+}
+
+.flechas-container .flechas:first-child {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 20px solid white;
+    border-bottom: 20px solid transparent;
+}
+
+
+.footer{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+    align-items: center;
+    color: white;
+}
+
+.footer p{
+    font-family: 'Poppins';
+    font-size: 10px;
+}
+
+.img img{
+    cursor: pointer;
+}
+
+.end img{
+    position: relative;
+    right: 120px;
 }
