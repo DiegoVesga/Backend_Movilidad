@@ -58,5 +58,21 @@ def deleteusuario(id):
         return f"Hubo un error{str(e)}"
     
 
+@app.route("/Registro", methods=["POST"]) #Para enviar o subir un registro
+def saveusuario():
+    try:
+        
+        username=request.form['usuario']
+        password=request.form['contrasena']
+        nombre=request.form['nombre']
+        print(username,password,nombre)
+        new_usuario= usuario(username,password,nombre)
+        db.session.add(new_usuario)
+        db.session.commit()
+        return "Datos guardados con exitos"
+    except Exception as e:
+        return f"Hubo un error {str(e)}"
+    
+
 
 
