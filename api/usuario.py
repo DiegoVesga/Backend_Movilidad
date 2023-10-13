@@ -17,9 +17,10 @@ def getusuario():
 @ruta_usuario.route("/saveusuario", methods=["POST"]) #Para enviar o subir un registro
 def saveusuario():
     try:
-        id_usuario = request.json['id_usuario']
+        username=request.json['username']
+        password=request.json['password']
         nombre=request.json['nombre']
-        new_usuario= usuario(id_usuario,nombre)
+        new_usuario= usuario(username,password,nombre)
         db.session.add(new_usuario)
         db.session.commit()
         return "Datos guardados con exitos"
@@ -33,7 +34,11 @@ def updateusuario(id):
         id_usuario = usuario.query.get(id)
         if not id_usuario:
             return "El usuario no esta registrado"
+        username=request.json['username']
+        password=request.json['password']
         nombre=request.json['nombre']
+        id_usuario.username=username 
+        id_usuario.password=password 
         id_usuario.nombre=nombre 
         db.session.commit()
         return "Datos Actualizado con exitos"
@@ -52,3 +57,6 @@ def deleteusuario(id):
     except Exception as e:
         return f"Hubo un error{str(e)}"
     
+
+
+
