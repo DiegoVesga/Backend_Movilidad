@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request,json
+from flask import Blueprint, jsonify, request,json,session,render_template
 from config.db import db, app, ma
 from models.usuario import usuario, usuario_schema,usuarios_schema
 
@@ -73,6 +73,22 @@ def saveusuario():
     except Exception as e:
         return f"Hubo un error {str(e)}"
     
+
+
+@app.route("/iniciosesion", methods=["POST"]) #Para enviar o subir un registro
+def logusuario():
+    try:
+        usernamex=request.form['usuario']
+        passwordx=request.form['contrasena']
+        usuariox= usuario.query.filter_by(username=usernamex,password=passwordx).first()
+        if usuariox :
+            session['usuario']=usuariox.username
+            return "bien"
+        
+    except Exception as e:
+        return f"Hubo un error,posible credenciales incorrectas {str(e)}"    
+    
+
 
 
 
