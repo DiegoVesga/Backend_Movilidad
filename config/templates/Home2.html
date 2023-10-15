@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Static/Styles/Home2.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <title>Biciquilla</title>
     
 </head>
 <body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    
+    
     <header>
         <div> <img  id="bg" src="../Static/IMG/biciquillafondo2-01.jpg"></div>
         <nav class="navv">
@@ -25,7 +31,22 @@
 
     <section id="ruta">
         <div id="left">
-            <img  id="mapme"src="../Static/IMG/mapa-01.png">
+            <div id='map' style='width: 700px; height: 500px; border-radius: 2%;'></div>
+            <script>
+              mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb25ldCIsImEiOiJjbG5ybW8xZzQwMThuMmxwcTUwZHZmaHJiIn0.oWoK3TLG9tupXEkuMrjyeA';
+              var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                zoom:15,
+                center: [-74.806984,11.004107]
+              });
+              map.addControl(new MapboxDirections({ accessToken:mapboxgl.accessToken}),'top-left')
+              map.addControl(new mapboxgl.NavigationControl());
+              
+            </script>
+            
+            
+            </div>
         </div>
         <div id="right">
             <div id="up">
@@ -96,7 +117,12 @@
             </div>
             
         
-    </footer>   
+    </footer>
+ 
+
+
+
+    
     
 </body>
 </html>
