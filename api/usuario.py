@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request,json,session,render_template
+from flask import Blueprint, jsonify, request,json,session,render_template,redirect
 from config.db import db, app, ma
 from models.usuario import usuario, usuario_schema,usuarios_schema
 
@@ -83,12 +83,15 @@ def logusuario():
     usuariox= usuario.query.filter_by(username=usernamex,password=passwordx).first()
     if usuariox :
         session['usuario']=usuariox.username
-        return "bien"
+        return render_template ("Home2.html",usuariox = session['usuario'])
     else:
         return "mal"
     
     
-
+@app.route('/salir')
+def cerrar():
+    session.pop('usuariox',None)
+    return redirect('/login')
 
 
 

@@ -22,9 +22,15 @@ app.register_blueprint(ruta_usuario_ruta, url_prefix="/api")
 #no me funcionan los llamados
 @app.route("/")
 def index():
+    return render_template("Home2.html")
+
+@app.route("/login")
+def login():
     return render_template("Loginin.html")
 
-
+@app.route("/sign")
+def sign():
+    return render_template("Signup.html")
 
 
 

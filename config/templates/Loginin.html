@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/config/static/Styles/Loginin.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Loginin.css') }}">
     <title>Log in</title>
 </head>
 
 <body>
     <header>
-        <div> <img id="bg" src="/config/static/IMG/fondo_log_in.jpg"></div>
+        <div> <img id="bg" src="{{ url_for('static', filename='IMG/fondo_log_in.jpg') }}"></div>
         <nav class="navv">
             <ul id="navbar">
-                <li class="button_left"><a href="#mainheader"><img id="Logo" src="/config/Static/IMG/logo2-01.png"
+                <li class="button_left"><a href="#mainheader"><img id="Logo" src="{{ url_for('static', filename='IMG/logo2-01.png') }}"
                             alt=""></a></li>
-                <li class="button_right"><a href="#Home" class="3">Home</a></li>
+                <li class="button_right"><a href="/" class="3">Home</a></li>
                 <li class="button_right"><a href="#ruta" class="3">Rutas</a></li>
                 <li class="button_right nuevaclase"><a href="#Comunidad" class="3">Comunidad</a></li>
             </ul>
