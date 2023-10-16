@@ -4,7 +4,7 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
     type="text/css">
-    
+
 <header>
     <div> <img id="bg" src="{{ url_for('static', filename='IMG/biciquillafondo2-01.jpg') }}">
         <nav class="navv">
@@ -13,9 +13,14 @@
                             src="{{ url_for('static', filename='IMG/logo2-01.png') }}" alt=""></a></li>
                 <li class="button_right"><a href="#Home" class="3">Home</a></li>
                 <li class="button_right"><a href="#ruta" class="3">Rutas</a></li>
-                <li class="button_right nuevaclase"><a href="#Comunidad" class="3">Comunidad</a></li>
-                <li class="button_right nuevaclase"><a href="/login" class="Login">Log in</a></li>
-                <li class="button_right nuevaclase"><a href="/sign" class="Signup">Sign up</a></li>
+                <li class="button_right "><a href="#Comunidad" class="3">Comunidad</a></li>
+                {% if usuariox %}
+                <li class="button_right"><a class="Usuario usuario" >{{usuariox}}</a></li>
+                <li class="button_right"><a href="/" class="/salir salir">Salir</a></li>
+                {% else %}
+                <li class="button_right"><a href="/login" class="Login login">Log in</a></li>
+                <li class="button_right"><a href="/sign" class="Signup signup">Sign up</a></li>
+                {% endif %}
             </ul>
         </nav>
 </header>

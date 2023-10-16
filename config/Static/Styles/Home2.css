@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Modak&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-*{
+* {
     font-family: 'Poppins';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
+body {
     margin: 0;
 }
 
-#bg{
+#bg {
     width: 100%;
 }
-.navv{
+
+.navv {
     position: absolute;
     top: 0;
     width: 100vw;
@@ -29,14 +33,14 @@ body{
 
 
 
-#Logo{
+#Logo {
     width: 280px;
     height: 70px;
     padding-left: 40px;
     margin-top: 20px;
 }
 
-.button_left{
+.button_left {
     display: grid;
     place-items: center;
     text-decoration: none;
@@ -44,12 +48,12 @@ body{
     margin-right: -15%;
 }
 
-.button_right{
+.button_right {
     display: grid;
     place-items: center;
 }
 
-.cuadrito{
+.cuadrito {
     height: 120px;
     width: 40%;
     background-color: black;
@@ -61,7 +65,7 @@ body{
     border-bottom-right-radius: 45px
 }
 
-.cuadrito p{
+.cuadrito p {
     font-family: 'Modak';
     font-size: 70px;
     font-weight: normal;
@@ -69,7 +73,7 @@ body{
 
 
 
-.button_right a{
+.button_right a {
     display: grid;
     place-items: center;
     text-decoration: none;
@@ -79,110 +83,156 @@ body{
     margin-left: 20px;
 }
 
-.nuevaclase{
-    color: black;
-
+.usuario{
+    border-radius: 20px;
+    background-color: black;
+    padding: 10% 50%;
 }
 
-#ruta{
+.salir{
+    border-radius: 20px;
+    background-color: rgb(245, 3, 3);
+    padding: 20% 50%;
+}
+
+.salir:hover{
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 15% 60%;
+}
+
+
+.login {
+    border-radius: 20px;
+    background-color: black;
+    padding: 15% 50%;
+}
+
+.login:hover{
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 15% 50%;
+}
+
+.signup {
+    border-radius: 20px;
+    border: 2px solid #ffffff ;
+    padding: 10% 30%;
+}
+
+.signup:hover{
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 10% 30%;
+    color: black;
+}
+
+#ruta {
     display: flex;
     background-color: black;
     color: white;
     margin-top: -20px;
     width: 100%;
-   
+
 }
 
-#left{
+#left {
     display: grid;
     place-items: center;
     padding-left: 20%;
 }
 
-#right{
-  display: flex;
-  flex-flow: column;
-  padding-left: 10%;
+#right {
+    display: flex;
+    flex-flow: column;
+    padding-left: 10%;
 }
 
-#mapme{
+#mapme {
     margin-top: 10%;
     width: 600px;
     height: 600px;
     margin-bottom: 20%;
 }
-#up{
+
+#up {
     width: 100%;
     display: flex;
     flex-flow: column;
-    
+
 }
 
-#vamos{
+#vamos {
     margin-top: 20%;
     margin-bottom: 20%;
     margin-left: 20%;
     font-family: 'modak';
     font-weight: 100;
     font-size: 60px;
-    color:#2CFFFF;
+    color: #2CFFFF;
 }
 
-.leinput{
+.leinput {
     font-weight: bold;
     font-size: 40px;
     padding-left: 20%;
-    
+
 }
-.dir{
+
+.dir {
     margin-left: 20%;
 }
 
-#down{
+#down {
     width: 100%;
     display: flex;
 }
-#vale{
+
+#vale {
     margin: -4.5px;
     margin-left: 400px;
     width: 100%;
 }
-#valecita{
-    
-     
+
+#valecita {
+
+
     height: 100px;
     width: 100px;
 
 }
 
-#first_input{
+#first_input {
     margin-top: -100px;
     padding-top: -200px;
 }
 
-#boton_vamos{
+#boton_vamos {
     height: 50px;
     width: 200px;
-    border: none; /* Quita el borde del botón */
+    border: none;
+    /* Quita el borde del botón */
     border-radius: 10px;
     cursor: pointer;
     margin-top: 5%;
-    color:black;
+    color: black;
     background-color: #FFDC31;
     font-weight: bold;
     font-size: 150%;
-    
+
     margin-left: 20%;
     padding: 10px 20px;
 }
 
-#comunidad{
+#comunidad {
     display: flex;
     background-color: blue;
     color: white;
     margin-top: -20px;
     width: 100%;
-   
+
 }
 
 * {
@@ -233,7 +283,7 @@ body{
     justify-content: space-evenly;
 }
 
-#foot p{
+#foot p {
     color: white;
 }
 
@@ -304,7 +354,7 @@ main {
 }
 
 
-.footer{
+.footer {
     width: 90%;
     margin: auto;
     display: flex;
@@ -314,55 +364,60 @@ main {
     color: white;
 }
 
-.footer p{
+.footer p {
     font-family: 'Poppins';
     font-size: 10px;
 }
 
-.img img{
+.img img {
     cursor: pointer;
 }
 
-.end img{
+.end img {
     position: relative;
     right: 120px;
 }
 
-#alert{
+#alert {
     color: #FFDC31;
     font-family: "Poppins";
     font-size: 60px;
 }
-#concej{
-    color:#2CFFFF;
+
+#concej {
+    color: #2CFFFF;
     font-family: "Poppins";
     font-size: 60px;
 }
-#cuadro .items{
+
+#cuadro .items {
     background-color: white;
     border-radius: 10px;
     padding: 2%;
 
 }
+
 #cuadro {
     padding: 30px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     grid-template-areas:
-    "alert ."
-    "first-child second-child"
-    "concej ."
-    "third-child fourth-child"
-    
+        "alert ."
+        "first-child second-child"
+        "concej ."
+        "third-child fourth-child"
+
     ;
     gap: 15px;
 }
+
 #alert {
-grid-area: alert;
+    grid-area: alert;
 
 }
-#concej{
+
+#concej {
     grid-area: concej;
 
 }
@@ -370,17 +425,20 @@ grid-area: alert;
 #cuadro .items:first-of-type {
     grid-area: first-child;
 }
+
 #cuadro .items:nth-of-type(2) {
     grid-area: second-child;
 }
+
 #cuadro .items:nth-of-type(3) {
     grid-area: third-child;
 }
+
 #cuadro .items:last-of-type {
     grid-area: fourth-child;
 }
 
-#cuadro .items h3{
+#cuadro .items h3 {
     font-weight: bold;
     font-size: 30px;
 }
