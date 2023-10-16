@@ -61,15 +61,18 @@ def deleteusuario(id):
 @app.route("/Registro", methods=["POST"]) #Para enviar o subir un registro
 def saveusuario():
     try:
-        
         username=request.form['usuario']
         password=request.form['contrasena']
         nombre=request.form['nombre']
         print(username,password,nombre)
-        new_usuario= usuario(username,password,nombre)
-        db.session.add(new_usuario)
-        db.session.commit()
-        return "Datos guardados con exitos"
+        new_usuario = usuario.query.filter_by(username=username).first()
+        if new_usuario is None and username != '' and password != '' and nombre != '':
+            new_usuarios = usuario(username,password,nombre)
+            db.session.add(new_usuarios)
+            db.session.commit()
+            return redirect ('/login')
+        else:
+            return redirect ('/sign')
     except Exception as e:
         return f"Hubo un error {str(e)}"
     
@@ -85,7 +88,7 @@ def logusuario():
         session['usuario']=usuariox.username
         return render_template ("Home2.html",usuariox = session['usuario'])
     else:
-        return "mal"
+        return render_template("Home2.html")
     
     
 @app.route('/salir')
