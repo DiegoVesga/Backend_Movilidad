@@ -32,6 +32,8 @@ body{
 #Logo{
     width: 280px;
     height: 70px;
+    padding-left: 40px;
+    margin-top: 20px;
 }
 
 .button_left{
@@ -39,13 +41,12 @@ body{
     place-items: center;
     text-decoration: none;
     color: #fff;
-
+    margin-right: -15%;
 }
 
 .button_right{
     display: grid;
     place-items: center;
-    
 }
 
 .cuadrito{
@@ -75,6 +76,7 @@ body{
     color: #fff;
     text-decoration: none;
     color: #fff;
+    margin-left: 20px;
 }
 
 .nuevaclase{

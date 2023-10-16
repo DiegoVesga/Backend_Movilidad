@@ -1,59 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Static/Styles/Home2.css">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
-    <title>Biciquilla</title>
+{% extends './layout.html' %}
+{% block title %}Biciquilla{% endblock %}
+{% block header %}
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+    type="text/css">
     
-</head>
-<body>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
-    
-    
-    <header>
-        <div> <img  id="bg" src="../Static/IMG/biciquillafondo2-01.jpg"></div>
+<header>
+    <div> <img id="bg" src="{{ url_for('static', filename='IMG/biciquillafondo2-01.jpg') }}">
         <nav class="navv">
             <ul id="navbar">
-                <li class="button_left"><a href="#mainheader" ><img id="Logo" src="../Static/IMG/logo2-01.png" alt=""></a></li>
+                <li class="button_left"><a href="#mainheader"><img id="Logo"
+                            src="{{ url_for('static', filename='IMG/logo2-01.png') }}" alt=""></a></li>
                 <li class="button_right"><a href="#Home" class="3">Home</a></li>
                 <li class="button_right"><a href="#ruta" class="3">Rutas</a></li>
                 <li class="button_right nuevaclase"><a href="#Comunidad" class="3">Comunidad</a></li>
-                <li class="button_right nuevaclase" ><a href="#Log in" class="Login">Log in</a></li>
-                <li class="button_right nuevaclase"><a href="#Sign up" class="Signup">Sign up</a></li>
+                <li class="button_right nuevaclase"><a href="/login" class="Login">Log in</a></li>
+                <li class="button_right nuevaclase"><a href="/sign" class="Signup">Sign up</a></li>
             </ul>
         </nav>
-    </header>
-    <section class="ruta" id="rutax">
+</header>
+{% endblock %}
 
+{% block body %}
+
+<section class="ruta" id="rutax">
     <section id="ruta">
         <div id="left">
             <div id='map' style='width: 700px; height: 500px; border-radius: 2%;'></div>
             <script>
-              mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb25ldCIsImEiOiJjbG5ybW8xZzQwMThuMmxwcTUwZHZmaHJiIn0.oWoK3TLG9tupXEkuMrjyeA';
-              var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                zoom:15,
-                center: [-74.787977,10.988829]
-              });
-              map.addControl(new MapboxDirections({ accessToken:mapboxgl.accessToken}),'top-left')
-              map.addControl(new mapboxgl.NavigationControl());
-              
+                mapboxgl.accessToken = 'pk.eyJ1IjoiamFjb25ldCIsImEiOiJjbG5ybW8xZzQwMThuMmxwcTUwZHZmaHJiIn0.oWoK3TLG9tupXEkuMrjyeA';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    zoom: 15,
+                    center: [-74.787977, 10.988829]
+                });
+                map.addControl(new MapboxDirections({ accessToken: mapboxgl.accessToken }), 'top-left')
+                map.addControl(new mapboxgl.NavigationControl());
             </script>
-            
-            
-            </div>
+        </div>
         </div>
         <div id="right">
             <div id="up">
                 <h1 id="vamos">A donde vamos?</h1>
-                <label  id="first_input" class="leinput">Dir Inicio</label>
+                <label id="first_input" class="leinput">Dir Inicio</label>
                 <br>
-                <input class="dir"  type="text" id="nombre" placeholder="Escribe tu nombre">
+                <input class="dir" type="text" id="nombre" placeholder="Escribe tu nombre">
                 <br>
                 <br>
                 <label class="leinput">Dir Final</label>
@@ -64,7 +56,7 @@
             <div id="down">
                 <button id="boton_vamos">vamos</button>
                 <!-- <div id="vale"><img  id="valecita"src="/config/Static/IMG/valecita-01.png"></div>-->
-                
+
 
             </div>
         </div>
@@ -77,7 +69,7 @@
         <main>
             <div id="cuadro">
                 <h2 id="alert">Alertas</h2>
-                
+
                 <div class="items">
                     <h3>Alerta #53456</h3>
                     <p>Lugar: asdasd</p>
@@ -99,30 +91,24 @@
                     <p>Lugar: asdasd</p>
                     <p>Tipo: Accidente balbla</p>
                 </div>
-                
+
             </div>
         </main>
-       
+
     </section>
     <footer id="foot">
-        
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis quam non enim blandit tempor.</p>
-            <div class="img">
-                <img width="40px" height="40px" src="../Static/IMG/fb-01.png">
-                <img width="40px" height="40px" src="../Static/IMG/ig-01.png">
-                <img width="40px" height="40px" src="../Static/IMG/whats-01.png">
-            </div>
-            <div class="end">
-                <img width="170px" height="60px" src="../Static/IMG/logo2-01.png">
-            </div>
-            
-        
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis quam non enim blandit tempor.</p>
+        <div class="img">
+            <img width="40px" height="40px" src="{{ url_for('static', filename='IMG/fb-01.png') }}">
+            <img width="40px" height="40px" src="{{ url_for('static', filename='IMG/ig-01.png') }}">
+            <img width="40px" height="40px" src="{{ url_for('static', filename='IMG/whats-01.png') }}">
+        </div>
+        <div class="end">
+            <img width="170px" height="60px" src="{{ url_for('static', filename='IMG/logo2-01.png') }}">
+        </div>
+
     </footer>
- 
 
 
-
-    
-    
-</body>
-</html>
+    {% endblock %}
