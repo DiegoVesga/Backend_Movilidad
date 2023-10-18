@@ -74,7 +74,7 @@ def saveusuario():
         else:
             return redirect ('/sign')
     except Exception as e:
-        return f"Hubo un error {str(e)}"
+        return  "aqui va el alertify"
     
 
 
