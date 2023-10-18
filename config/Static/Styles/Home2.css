@@ -381,7 +381,7 @@ main {
     border: 1px solid #800080;
     box-shadow: 0 0 10px rgba(255, 2, 255, 0.3);
     z-index: 1000;
-  }
+}
 
   /* Estilos para oscurecer el fondo cuando se muestra la ventana emergente */
 #overlay {
@@ -393,9 +393,9 @@ main {
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     z-index: 999;
-  }
+}
 
-  #clickmemichael {
+#clickmemichael {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     background-color:  #FFDC31;
@@ -407,5 +407,18 @@ main {
     margin: 0 auto;
     margin-bottom: 10%;
     font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 
+    
+
+}
+
+
+#clickmemichael:hover {
+    background-color: #cad436;
+    transform: scale(1.05); 
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Agregamos una sombra */
   }
