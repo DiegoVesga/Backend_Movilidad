@@ -54,14 +54,14 @@ def deleteconsejos(id):
     
 @app.route("/comentario", methods=["POST"])
 def comentario():
-    try:
-        id_usuario = session['usuario']
-        texto_consejo = request.form['comentario']
-        new_consejos= consejos(id_usuario,texto_consejo)
-        usuariox= usuario.query.filter_by(id_usuario=id_usuario).first()
-        nombrex = usuariox.username
-        db.session.add(new_consejos)
-        db.session.commit()
-        return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
-    except Exception as e:
-        return f"Hubo un error {str(e)}"
+    if 'usuario' in session:
+            id_usuario = session['usuario']
+            texto_consejo = request.form['comentario']
+            new_consejos= consejos(id_usuario,texto_consejo)
+            usuariox= usuario.query.filter_by(id_usuario=id_usuario).first()
+            nombrex = usuariox.username
+            db.session.add(new_consejos)
+            db.session.commit()
+            return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
+    else:
+        return redirect('/login')

@@ -95,7 +95,7 @@ def logusuario():
     
 @app.route('/salir')
 def cerrar():
-    session.pop('usuariox',None)
+    session.pop('usuario',None)
     return redirect('/login')
 
 
