@@ -146,7 +146,6 @@ body {
 
 #comunidad {
     display: flex;
-    background-color: blue;
     color: white;
     margin-top: -20px;
     width: 100%;
@@ -247,7 +246,7 @@ body {
     scrollbar-width: thin; /* Ancho del scroll */
   scrollbar-color: rgb(252, 8, 170) rgb(129, 11, 139); /* Color thumb y track */
 
-  }
+}
 main {
     display: flex;
     align-items: center;
@@ -394,4 +393,19 @@ main {
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
     z-index: 999;
+  }
+
+  #clickmemichael {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color:  #FFDC31;
+    border-radius: 10px;
+    border:none;
+    display: flex;
+    width:  200px;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    font-size: 20px;
+
   }
