@@ -244,8 +244,20 @@ body {
     overflow: auto; /* Esto habilita el desplazamiento si el contenido excede las dimensiones del contenedor */
     border: 1px solid #000000;
     scrollbar-width: thin; /* Ancho del scroll */
-  scrollbar-color: rgb(252, 8, 170) rgb(129, 11, 139); /* Color thumb y track */
+    scrollbar-color: rgb(252, 8, 170) rgb(129, 11, 139); /* Color thumb y track */
 
+}
+
+.scrollable-container::-webkit-scrollbar {
+    width: 8px; /* Ancho del scroll vertical */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background-color: rgb(235, 59, 241); /* Color del thumb vertical */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+    background-color: rgb(126, 8, 110); /* Color del track vertical */
 }
 main {
     display: flex;
