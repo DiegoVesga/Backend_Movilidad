@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify, request,json
+from flask import Blueprint, jsonify,session, request,json,redirect,render_template
 from config.db import db, app, ma
+from models.usuario import usuario
 from models.consejos import consejos, consejo_schema,consejoss_Schema
 
 
@@ -17,10 +18,9 @@ def getconsejos():
 @ruta_consejos.route("/saveconsejos", methods=["POST"])
 def saveconsejos():
     try:
-        id_consejos = request.json['id_consejos']
         id_usuario = request.json['id_usuario']
         texto_consejo = request.json['texto_consejo']
-        new_consejos= consejos(id_consejos,id_usuario,texto_consejo)
+        new_consejos= consejos(id_usuario,texto_consejo)
         db.session.add(new_consejos)
         db.session.commit()
         return "Datos guardados con exitos"
@@ -51,3 +51,17 @@ def deleteconsejos(id):
     except Exception as e:
         return f"Hubo un error {str(e)}"
     
+    
+@app.route("/comentario", methods=["POST"])
+def comentario():
+    try:
+        id_usuario = session['usuario']
+        texto_consejo = request.form['comentario']
+        new_consejos= consejos(id_usuario,texto_consejo)
+        usuariox= usuario.query.filter_by(id_usuario=id_usuario).first()
+        nombrex = usuariox.username
+        db.session.add(new_consejos)
+        db.session.commit()
+        return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
+    except Exception as e:
+        return f"Hubo un error {str(e)}"

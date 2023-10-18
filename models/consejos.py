@@ -8,8 +8,7 @@ class consejos(db.Model):
     texto_consejo = db.Column(db.String(50))
     
 
-    def __init__(self, id_consejo,id_usuario,texto_consejo):
-        self.id_consejo=id_consejo
+    def __init__(self,id_usuario,texto_consejo):
         self.id_usuario=id_usuario
         self.texto_consejo=texto_consejo
         

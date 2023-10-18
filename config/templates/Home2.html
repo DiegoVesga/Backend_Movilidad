@@ -6,6 +6,7 @@
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
     type="text/css">
     <script src="{{ url_for('static', filename='Js/home2.js') }}"></script>
+    <script src="{{ url_for('static', filename='Js/Consejo.js') }}"></script>
 
 <header>
     <div> <img id="bg" src="{{ url_for('static', filename='IMG/biciquillafondo2-01.jpg') }}">
@@ -17,7 +18,7 @@
                 <li class="button_right"><a href="#ruta" class="3">Rutas</a></li>
                 <li class="button_right" id="comu"><a href="#Comunidad" class="3">Comunidad</a></li>
                 {% if usuariox %}
-                <li class="button_right"><a class="Usuario usuario">{{usuariox}}</a></li>
+                <li class="button_right"><a class="Usuario usuario">{{nombrex}}</a></li>
                 <li class="button_right"><a href="/" class="/salir salir">Salir</a></li>
                 {% else %}
                 <li class="button_right"><a href="/login" class="Login login">Log in</a></li>
@@ -44,9 +45,34 @@
             <p>COMUNIDAD</p>
         </div>
         <main>
-            <div id="cuadro">
-                <h2 id="alert">Alertas</h2>
+            <div id="cuadro" >
+                <div class="scrollable-container">
+                    <h2 id="alert">Alertas</h2>
+                <div class="items">
+                    <h3>Alerta #53456</h3>
+                    <p>Lugar: asdasd</p>
+                    <p>Tipo: Accidente balbla</p>
+                </div>
+                <div class="items">
+                    <h3>Alerta #53456</h3>
+                    <p>Lugar: asdasd</p>
+                    <p>Tipo: Accidente balbla</p>
+                    <div class="items">
+                        <h3>Alerta #53456</h3>
+                        <p>Lugar: asdasd</p>
+                        <p>Tipo: Accidente balbla</p>
+                    </div>
+                    <div class="items">
+                        <h3>Alerta #53456</h3>
+                        <p>Lugar: asdasd</p>
+                        <p>Tipo: Accidente balbla</p>
+                    </div>
+                </div>
+                  </div>
+                
 
+                  <div class="scrollable-container">
+                    <h2 id="concej">Consejos</h2>
                 <div class="items">
                     <h3>Alerta #53456</h3>
                     <p>Lugar: asdasd</p>
@@ -57,7 +83,6 @@
                     <p>Lugar: asdasd</p>
                     <p>Tipo: Accidente balbla</p>
                 </div>
-                <h2 id="concej">Consejos</h2>
                 <div class="items">
                     <h3>Alerta #53456</h3>
                     <p>Lugar: asdasd</p>
@@ -68,9 +93,23 @@
                     <p>Lugar: asdasd</p>
                     <p>Tipo: Accidente balbla</p>
                 </div>
+                  </div>
 
             </div>
         </main>
+        <button onclick="mostrarVentana()">Ingresar Comentario</button>
+
+        <!-- Ventana emergente -->
+<div id="overlay"></div>
+<div id="popup">
+  <h2>Ingresa tu comentario</h2>
+<form action="/comentario" method="POST">
+    <input id="comentario" class="controls" type="textarea" name="comentario" value="" placeholder="Coment">
+  <br>
+  <button class="buttons" onclick="enviarComentario()"  type="submit" >Enviar</button>
+  <button class="buttons" onclick="cerrarVentana()">Cancelar</button>
+</form>
+</div>
 
     </section>
     <footer id="foot">

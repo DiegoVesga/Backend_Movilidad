@@ -84,11 +84,13 @@ def logusuario():
     usernamex=request.form['usuario']
     passwordx=request.form['contrasena']
     usuariox= usuario.query.filter_by(username=usernamex,password=passwordx).first()
+    nombrex = usuariox.username
     if usuariox :
-        session['usuario']=usuariox.username
-        return render_template ("Home2.html",usuariox = session['usuario'])
+        session['usuario']=usuariox.id_usuario
+        return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
     else:
         return render_template("Home2.html")
+    
     
     
 @app.route('/salir')
