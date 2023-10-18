@@ -66,7 +66,7 @@ def saveusuario():
         nombre=request.form['nombre']
         print(username,password,nombre)
         new_usuario = usuario.query.filter_by(username=username).first()
-        if new_usuario is None and username != '' and password != '' and nombre != '':
+        if new_usuario is None:
             new_usuarios = usuario(username,password,nombre)
             db.session.add(new_usuarios)
             db.session.commit()
