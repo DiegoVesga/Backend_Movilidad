@@ -19,7 +19,6 @@ app.register_blueprint(ruta_ciclo_ruta, url_prefix="/api")
 app.register_blueprint(ruta_ruta_lugar_estrategico, url_prefix="/api")
 app.register_blueprint(ruta_usuario_ruta, url_prefix="/api")
 
-#no me funcionan los llamados
 @app.route("/")
 def index():
     return render_template("Home2.html")

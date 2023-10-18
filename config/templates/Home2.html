@@ -48,23 +48,20 @@
             <div id="cuadro">
                 <h2 id="concej">Consejos</h2>
                 <div class="scrollable-container">
-
-
-
-                    {% if Comentario %}
-                    {% for Comentario in Comentario[::-1] %}
-                    <div class="items">
-                        <h3> #{{ Comentario[0]}}</h3>
-                        <p>@{{ Comentario[1] }}</p>
-                        <p>{{ Comentario[0].texto_consejo }}</p>
-                    </div>
-                    br
-                    {% endfor %}
-                    {% else %}
-                    <p>No hay datos en la base de datos.</p>
-                    {% endif %}
-
-
+                  
+                        {% if Comentario %}
+                            {% for Comentario in Comentario[::-1] %}
+                                <div class="items">
+                                <h3> #{{ Comentario[0]}}</h3>
+                                <p>@{{ Comentario[1] }}</p>
+                                <p>{{ Comentario[0].texto_consejo }}</p>
+                                </div>
+                                br
+                            {% endfor %}
+                        {% else %}
+                             <p>No hay datos en la base de datos.</p>
+                        {% endif %}
+                    
                 </div>
 
             </div>

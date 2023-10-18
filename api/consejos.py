@@ -59,18 +59,15 @@ def comentario():
             texto_consejo = request.form['comentario']
             new_consejos= consejos(id_usuario,texto_consejo)
             usuariox= usuario.query.filter_by(id_usuario=id_usuario).first()
-            nombrex = usuariox.username
+            nombrex = usuariox.nombre
             db.session.add(new_consejos)
             db.session.commit()
             return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
     else:
         return redirect('/login')
 
-
 @app.route("/", methods=["GET"])
-def Comentario():
+def mostrarcomentario():
     Comentario = db.session.query(consejos, usuario.nombre, usuario.id_usuario).join(usuario, consejos.id_usuario == usuario.id_usuario).all()
-    print ('hola caremonda')
     print(Comentario)
-    return render_template('Home2.html', Comentario=Comentario)
-
+    return render_template('Home2.html',Comentario=Comentario)

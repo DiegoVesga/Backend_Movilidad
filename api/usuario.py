@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request,json,session,render_template,redirect
 from config.db import db, app, ma
+from models.consejos import consejos
 from models.usuario import usuario, usuario_schema,usuarios_schema
 
 
@@ -85,10 +86,11 @@ def logusuario():
     usernamex=request.form['usuario']
     passwordx=request.form['contrasena']
     usuariox= usuario.query.filter_by(username=usernamex,password=passwordx).first()
+    Comentario = db.session.query(consejos, usuario.nombre, usuario.id_usuario).join(usuario, consejos.id_usuario == usuario.id_usuario).all()
     if usuariox :
-        nombrex = usuariox.username
-        session['usuario']=usuariox.id_usuario
-        return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
+        nombrex = usuariox.nombre
+        session['usuario']=usuariox.id_usuario #porque es una unica session de un usuario
+        return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex, Comentario=Comentario)     
     else:
         return redirect("/sign")
     
