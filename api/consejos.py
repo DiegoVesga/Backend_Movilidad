@@ -65,3 +65,12 @@ def comentario():
             return render_template ("Home2.html",usuariox = session['usuario'], nombrex = nombrex)
     else:
         return redirect('/login')
+
+
+@app.route("/", methods=["GET"])
+def Comentario():
+    Comentario = db.session.query(consejos, usuario.nombre, usuario.id_usuario).join(usuario, consejos.id_usuario == usuario.id_usuario).all()
+    print ('hola caremonda')
+    print(Comentario)
+    return render_template('Home2.html', Comentario=Comentario)
+
