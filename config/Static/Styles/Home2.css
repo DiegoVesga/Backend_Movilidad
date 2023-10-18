@@ -416,15 +416,13 @@ main {
     display: flex;
     width:  200px;
     height: 60px;
-    margin: 0 auto;
-    margin-bottom: 10%;
+    margin: -60px auto;
+    margin-bottom: 2%;
     font-size: 20px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-
-    
 
 }
 
