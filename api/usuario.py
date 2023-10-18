@@ -3,6 +3,7 @@ from config.db import db, app, ma
 from models.usuario import usuario, usuario_schema,usuarios_schema
 
 
+
 ruta_usuario = Blueprint("ruta_usuario",__name__)
 #routes_cliente = Blueprint("routes_cliente", __name__)
 
@@ -66,7 +67,7 @@ def saveusuario():
         nombre=request.form['nombre']
         print(username,password,nombre)
         new_usuario = usuario.query.filter_by(username=username).first()
-        if new_usuario is None:
+        if new_usuario is None and username != '' and password != '' and nombre != '':
             new_usuarios = usuario(username,password,nombre)
             db.session.add(new_usuarios)
             db.session.commit()
@@ -74,7 +75,7 @@ def saveusuario():
         else:
             return redirect ('/sign')
     except Exception as e:
-        return  "aqui va el alertify"
+        return f"Hubo un error {str(e)}"
     
 
 
