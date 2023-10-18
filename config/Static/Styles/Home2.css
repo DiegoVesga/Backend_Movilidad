@@ -253,11 +253,11 @@ body {
 }
 
 .scrollable-container::-webkit-scrollbar-thumb {
-    background-color: rgb(235, 59, 241); /* Color del thumb vertical */
+    background-color: #28d6d6; /* Color del thumb vertical */
 }
 
 .scrollable-container::-webkit-scrollbar-track {
-    background-color: rgb(126, 8, 110); /* Color del track vertical */
+    background-color: #0c9e9e; /* Color del track vertical */
 }
 main {
     display: flex;
@@ -428,7 +428,7 @@ main {
 
 
 #clickmemichael:hover {
-    background-color: #cad436;
+    
     transform: scale(1.05); 
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Agregamos una sombra */
 }
